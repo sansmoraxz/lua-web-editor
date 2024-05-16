@@ -7,7 +7,7 @@ import CodeEditorWindow from "./CodeEditorWindow";
 function App() {
   return (
     <>
-      <h1 className="text-4xl text-center">Lua Editor</h1>
+      <h1 className="text-4xl text-center">Lua Web Editor</h1>
       <CodeEditorWindow />
 
       <div className="text-center mt-4">Free to use, no sign up required.</div>
