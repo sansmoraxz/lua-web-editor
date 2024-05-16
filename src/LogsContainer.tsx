@@ -9,7 +9,13 @@ const LogsContainer = () => {
   useEffect(() => {
     const hookedConsole = Hook(
       window.console,
-      (log) => setLogs((currLogs) => [...currLogs, log]),
+      (log) => {
+        if(log.method === "clear") {
+          setLogs([]);
+          return;
+        }
+        setLogs((currLogs) => [...currLogs, log]);
+      },
       false
     );
 

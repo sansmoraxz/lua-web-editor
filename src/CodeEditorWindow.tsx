@@ -30,6 +30,7 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
   }
 
   function runScript() {
+    console.clear();
     console.log("Running script...");
 
     const lua = factory.createEngine();
