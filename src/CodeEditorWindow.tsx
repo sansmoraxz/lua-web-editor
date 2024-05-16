@@ -67,7 +67,7 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
       setTimeout(() => {
         setIsRunning(false);
       }
-      , 10000);
+      , 1000);
     });
   }
 
