@@ -72,7 +72,7 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
     <div className="flex flex-row">
       <div>
         <Editor
-          height="85vh"
+          height="80vh"
           width="50vw"
           language={language || "lua"}
           theme="vs-dark"
@@ -81,7 +81,7 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
           defaultValue={defaultCode}
         />
       </div>
-      <div className="h-1/4 w-96 p-4">
+      <div className="h-1/4 w-[50vw] p-4">
         <button
           onClick={() => runScript()}
           disabled={isRunning}
