@@ -5,9 +5,7 @@ import { LuaFactory } from "wasmoon";
 
 const factory = new LuaFactory();
 
-
-const defaultCode =
-`-- What's this? A Lua editor?
+const defaultCode = `-- What's this? A Lua editor?
 -- Yes! You can write Lua scripts and run them here.
 -- There is no server-side code running here.
 -- Everything is in the browser (yes even the compiler).
@@ -26,9 +24,7 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
   const [srCode, setSrCode] = useState<string>("");
   const [output, setOutput] = useState<string>("");
 
-  function handleEditorChange(
-    value: string | undefined
-  ) {
+  function handleEditorChange(value: string | undefined) {
     setSrCode(value || "");
     return;
   }
@@ -78,7 +74,7 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
         <div className="h-fit w-full overflow-y-auto">
           <h3>Logs:</h3>
           <br />
-        <LogsContainer />
+          <LogsContainer />
         </div>
       </div>
     </div>
