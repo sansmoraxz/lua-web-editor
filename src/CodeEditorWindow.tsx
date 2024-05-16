@@ -31,15 +31,16 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
     return;
   }
 
-  function runScript() {
+  async function process() {
     console.clear();
     console.warn("Running script...");
-    console.time("Script Execution Time");
-    
-    const lua = factory.createEngine();
-    lua.then((engine) => {
-      setIsRunning(true);
-      engine.doString(srCode).then((output) => {
+    console.time("Execution Time");
+
+    try {
+      const engine = await factory.createEngine();
+
+      try {
+        const output = await engine.doString(srCode);
         if (output){
           console.log("Script Output:", output);
           setOutput(output);
@@ -48,19 +49,25 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
           console.log("Script Output: No output");
           setOutput("No output");
         }
-        console.timeEnd("Script Execution Time");
-        setIsRunning(false);
-      }).catch((err) => {
+        console.timeEnd("Execution Time");
+      } catch (err) {
         console.error("Script Error:", err);
         setOutput(`Error occured. Check the logs.`);
-        console.timeEnd("Script Execution Time");
-        setIsRunning(false);
-      });
-    }).catch((err) => {
+        console.timeEnd("Execution Time");
+      }
+
+    } catch (err) {
       console.error("Engine Error:", err);
-      setOutput(`Error occured. Check the logs.`);
-      console.timeEnd("Script Execution Time");
-      setIsRunning(false);
+    }
+  }
+
+  function runScript() {
+    setIsRunning(true);
+    process().finally(() => {
+      setTimeout(() => {
+        setIsRunning(false);
+      }
+      , 10000);
     });
   }
 
