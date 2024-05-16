@@ -64,10 +64,7 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
   function runScript() {
     setIsRunning(true);
     process().finally(() => {
-      setTimeout(() => {
-        setIsRunning(false);
-      }
-      , 1000);
+      setIsRunning(false);
     });
   }
 
