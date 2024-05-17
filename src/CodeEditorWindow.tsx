@@ -14,6 +14,9 @@ const defaultCode = `-- What's this? A Lua editor?
 --
 -- Return values are printed to the output window.
 -- Logs are printed to the logs window.
+
+
+-- For details about the compilation process for lua, check https://www.lua.org/pil/8.html
 `;
 
 type CodeEditorWindowProps = {
