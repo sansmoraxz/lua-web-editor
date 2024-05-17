@@ -39,6 +39,12 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
     try {
       const engine = await factory.createEngine();
 
+      // override print function to use console.log
+      engine.global.set("print", (...args: unknown[]) => {
+        console.info("Lua Console output: ", ...args);
+      });
+
+
       try {
         const output = await engine.doString(srCode);
         if (output) {
