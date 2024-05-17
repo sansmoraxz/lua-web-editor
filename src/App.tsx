@@ -1,6 +1,7 @@
 import "./App.css";
 
 import CodeEditorWindow from "./CodeEditorWindow";
+import Footer from "./Footer";
 
 // Create a standalone lua environment from the factory
 
@@ -12,7 +13,7 @@ function App() {
       </h1>
       <CodeEditorWindow />
 
-      <div className="text-center mt-4">Free to use, no sign up required.</div>
+      <Footer />
     </>
   );
 }
