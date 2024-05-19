@@ -1,5 +1,5 @@
 import Editor from "@monaco-editor/react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { LogsContainer } from "./LogsContainer";
 import { LuaFactory } from "wasmoon";
 
@@ -29,10 +29,11 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
 
   const [isRunning, setIsRunning] = useState<boolean>(false);
 
-  function handleEditorChange(value: string | undefined) {
+  const handleEditorChange = useCallback((value: string | undefined) => {
     setSrCode(value || "");
     return;
-  }
+  }, []);
+
 
   async function process() {
     console.clear();
@@ -121,3 +122,4 @@ const CodeEditorWindow = ({ language }: CodeEditorWindowProps) => {
 };
 
 export default CodeEditorWindow;
+
