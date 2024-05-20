@@ -11,4 +11,4 @@ Features the following technologies:-
 - Webassembly (For compiling and running the lua scripts)
 
 
-Fully offline support, you can use this editor without internet connection. Compiler and linter are running completely on your browser.
+Fully offline support, you can use this editor without internet connection. Interpreter and linter are running completely on your browser.
