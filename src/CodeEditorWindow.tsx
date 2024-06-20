@@ -8,15 +8,12 @@ const factory = new LuaFactory();
 const defaultCode = `-- What's this? A Lua editor?
 -- Yes! You can write Lua scripts and run them here.
 -- There is no server-side code running here.
--- Everything is in the browser (yes even the compiler).
+-- Everything is in the browser (yes even the interpreter).
 -- Powered by wasmoon (webassembly).
 -- Enjoy!
 --
 -- Return values are printed to the output window.
 -- Logs are printed to the logs window.
-
-
--- For details about the compilation process for lua, check https://www.lua.org/pil/8.html
 `;
 
 type CodeEditorWindowProps = {
